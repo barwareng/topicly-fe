@@ -1,0 +1,1 @@
+<h2 class="font-extrabold text-3xl tracking-wider">Topicly</h2>
