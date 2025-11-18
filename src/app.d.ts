@@ -5,6 +5,8 @@ declare global {
 		// interface Error {}
 		interface Locals {
 			pb: import('pocketbase').default;
+			user: AuthRecord | null;
+			user: import('pocketbase').AuthRecord | null;
 		}
 		// interface PageData {}
 		// interface PageState {}

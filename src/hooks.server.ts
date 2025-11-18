@@ -18,6 +18,8 @@ export const handle = async ({ event, resolve }) => {
 		// clear the auth store on failed refresh
 		event.locals.pb.authStore.clear();
 	}
+	event.locals.user = event.locals.pb.authStore.record;
+	// protect routes that require authentication
 	if (!publicRoutes.includes(event.url.pathname) && event.locals.pb.authStore.record === null) {
 		redirect(303, '/login');
 	}

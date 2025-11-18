@@ -32,11 +32,11 @@
 				url: '#',
 				icon: Settings2Icon
 			},
-			{
-				title: 'Templates',
-				url: '#',
-				icon: BlocksIcon
-			},
+			// {
+			// 	title: 'Templates',
+			// 	url: '#',
+			// 	icon: BlocksIcon
+			// },
 			{
 				title: 'Trash',
 				url: '#',
@@ -218,6 +218,7 @@
 	import * as Sidebar from '$lib/components/ui/sidebar/index.js';
 	import type { ComponentProps } from 'svelte';
 	import TopiclyLogo from '$lib/components/icons/topicly-logo.svelte';
+	import NavMaps from './nav-maps.svelte';
 
 	let { ref = $bindable(null), ...restProps }: ComponentProps<typeof Sidebar.Root> = $props();
 </script>
@@ -230,8 +231,14 @@
 		<NavMain items={data.navMain} />
 	</Sidebar.Header>
 	<Sidebar.Content>
-		<NavFavorites favorites={data.favorites} />
-		<NavWorkspaces workspaces={data.workspaces} />
+		<!-- <NavFavorites favorites={data.favorites} /> -->
+		<svelte:boundary>
+			<NavMaps />
+			{#snippet pending()}
+				Loading maps ...
+			{/snippet}
+		</svelte:boundary>
+		<!-- <NavWorkspaces workspaces={data.workspaces} /> -->
 		<NavSecondary items={data.navSecondary} class="mt-auto" />
 	</Sidebar.Content>
 	<Sidebar.Rail />
