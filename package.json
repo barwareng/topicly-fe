@@ -52,6 +52,7 @@
 		"zod": "^4.1.12"
 	},
 	"dependencies": {
+		"@polar-sh/sveltekit": "^0.5.0",
 		"mode-watcher": "^1.1.0",
 		"pocketbase": "^0.26.3"
 	}
