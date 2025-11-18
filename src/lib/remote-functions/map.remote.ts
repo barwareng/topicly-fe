@@ -9,7 +9,7 @@ export const createMap = form(
 		niche: z.string()
 	}),
 	async (data) => {
-		const { locals, cookies } = await getRequestEvent();
+		const { locals } = await getRequestEvent();
 		try {
 			const res = await locals.pb.send('/api/maps/new', {
 				method: 'POST',
