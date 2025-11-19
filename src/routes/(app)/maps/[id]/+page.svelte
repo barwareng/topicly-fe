@@ -5,7 +5,7 @@
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	let { data }: PageProps = $props();
-    $inspect(JSON.parse(data.map.data.text));
+    $inspect(data.map.data);
 </script>
 
 <header class="flex h-14 shrink-0 items-center gap-2">

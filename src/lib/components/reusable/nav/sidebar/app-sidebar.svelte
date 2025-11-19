@@ -225,7 +225,7 @@
 
 <Sidebar.Root bind:ref class="border-r-0" {...restProps}>
 	<Sidebar.Header>
-		<div class="my-6">
+		<div class="my-2 px-2">
 			<TopiclyLogo />
 		</div>
 		<NavMain items={data.navMain} />

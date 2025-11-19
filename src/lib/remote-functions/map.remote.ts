@@ -6,21 +6,20 @@ import { z } from 'zod/v4';
 
 export const createMap = form(
 	z.object({
-		niche: z.string()
+		niche: z.string(),
+		country: z.string().optional(),
+		language: z.string().optional().default('English'),
+		type: z.enum(['news', 'blogs', 'forums']).optional().default('news')
 	}),
 	async (data) => {
 		const { locals } = await getRequestEvent();
 		try {
+			console.log('Creating map with data:', data);
 			const res = await locals.pb.send('/api/maps/new', {
 				method: 'POST',
-				body: JSON.stringify({
-					niche: data.niche,
-					country: 'USA',
-					language: 'English',
-					type: 'news'
-				})
+				body: JSON.stringify(data)
 			});
-			console.log('Map creation result:', res);
+			// console.log('Map creation result:', res);
 			await getAllMaps().refresh();
 			// return { success: true, message: 'Map created successfully.' };
 			redirect(303, `/maps/${res.id}`);
